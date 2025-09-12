@@ -1,7 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
   <head>
-   <title>小群的行程表</title>
-   <meta name="description" content="簡單來說，就是我的行程表啦！">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>littlechin's Calendar</title>
+    <meta name="description" content="littlechin 的個人行程表">
+    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-F9SPN8W07L"></script>
     <script>
@@ -11,8 +15,167 @@
 
       gtag('config', 'G-F9SPN8W07L');
     </script>
+    
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        min-height: 100vh;
+        background: linear-gradient(to bottom, 
+          #ff6b35 0%,      /* Warm orange-red */
+          #f7931e 15%,     /* Bright orange */
+          #ffd23f 30%,     /* Golden yellow */
+          #ff8c42 45%,     /* Sunset orange */
+          #8b4513 65%,     /* Saddle brown */
+          #2f1b14 80%,     /* Dark brown */
+          #000000 100%     /* Pure black */
+        );
+        background-attachment: fixed;
+        position: relative;
+        overflow-x: auto;
+      }
+      
+      .container {
+        position: relative;
+        min-height: 100vh;
+        backdrop-filter: blur(20px);
+        background: rgba(0, 0, 0, 0.15);
+        padding: 20px 20px 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #fff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      }
+      
+      .header h1 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: -0.5px;
+      }
+      
+      .calendar-container {
+        width: 100%;
+        max-width: 1200px;
+        height: calc(100vh - 180px);
+        min-height: 500px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .calendar-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 20px;
+      }
+      
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        padding: 6px 20px;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 1000;
+      }
+      
+      .footer a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      
+      .footer a:hover {
+        color: #ffd966;
+      }
+      
+      /* Mobile Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 15px 15px 40px 15px;
+        }
+        
+        .header h1 {
+          font-size: 2rem;
+        }
+        
+        .calendar-container {
+          height: calc(100vh - 160px);
+          min-height: 450px;
+          border-radius: 15px;
+        }
+        
+        .calendar-iframe {
+          border-radius: 15px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .container {
+          padding: 10px 10px 40px 10px;
+        }
+        
+        .header {
+          margin-bottom: 15px;
+        }
+        
+        .header h1 {
+          font-size: 1.8rem;
+        }
+        
+        .calendar-container {
+          height: calc(100vh - 120px);
+          min-height: 400px;
+          border-radius: 12px;
+        }
+        
+        .calendar-iframe {
+          border-radius: 12px;
+        }
+      }
+    </style>
   </head>
-  <body style="margin: 0;">
-    <iframe src="https://calendar.google.com/calendar/embed?src=littlechintw%40gmail.com&src=hb1ulgrm956tflaa0p8e7clru4%40group.calendar.google.com&ctz=Asia%2FTaipei&mode=WEEK&title=littlechin%27s+Worktime&showPrint=0&showTabs=0&showCalendars=0&showNav=1&bgcolor=%23DAF7A6" style="border: 0" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>littlechin's Calendar</h1>
+      </div>
+      
+      <div class="calendar-container">
+        <iframe 
+          class="calendar-iframe"
+          src="https://calendar.google.com/calendar/embed?src=littlechintw%40gmail.com&src=hb1ulgrm956tflaa0p8e7clru4%40group.calendar.google.com&ctz=Asia%2FTaipei&mode=WEEK&title=littlechin%27s+Worktime&showPrint=0&showTabs=0&showCalendars=0&showNav=1&bgcolor=%23FFFFFF"
+          frameborder="0" 
+          scrolling="no">
+        </iframe>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <a href="https://littlechin.tw" target="_blank" rel="noopener noreferrer">
+        Visit littlechin.tw
+      </a>
+    </div>
   </body>
 </html>
